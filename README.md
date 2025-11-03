@@ -9,6 +9,7 @@
 This Python program demonstrates the four fundamental principles of Object-Oriented Programming (OOP) Abstraction, Encapsulation, Inheritance, and Polymorphism using a simple educational system with Person, Student, and Teacher classes.
 
 **Code Description****
+
 1️⃣ Abstraction
 
 Implemented through the abstract base class Person.
@@ -20,11 +21,15 @@ This hides unnecessary implementation details and enforces a common interface fo
 from abc import ABC, abstractmethod
 
 class Person(ABC):
+
     def __init__(self, name):
+    
         self._name = name       
 
     @abstractmethod
+    
     def role(self):
+    
         pass
 
 2️⃣ Inheritance
@@ -36,12 +41,17 @@ They extend the base functionality and provide their specific implementations of
 This demonstrates how child classes can build upon a parent class.
 
 class Student(Person):
+
     def __init__(self, name):
+    
         super().__init__(name)
+        
         self._courses = {}
 
 class Teacher(Person):
+
     def __init__(self, name):
+    
         super().__init__(name)
 
 3️⃣ Encapsulation
@@ -63,6 +73,7 @@ The function describe(person) can accept any object derived from the Person clas
 Regardless of whether person is a Student or Teacher, it correctly calls the role() method specific to that class.
 
 def describe(person):
+
     print(f"{person._name} is a {person.role()}.")
 
 
@@ -71,20 +82,29 @@ This shows method overriding and the ability to treat different objects in the s
 **Demonstration**
 
 teacher = Teacher("Mr. Smith")
+
 student = Student("Chioma")
 
 describe(teacher)
+
 describe(student)
 
 student.enroll("Mathematics")
+
 teacher.assign_grade(student, "Mathematics", "A")
+
 student.view_grades()
 
 **Output**
+
 Mr. Smith is a Teacher.
+
 Chioma is a Student.
+
 Chioma enrolled in Mathematics
+
 Mr. Smith gave Chioma a 'A' in Mathematics
 
 Grades for Chioma:
+
  - Mathematics: A
